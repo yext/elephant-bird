@@ -216,6 +216,8 @@ public final class ProtobufStructObjectInspector extends SettableStructObjectIns
 
     if (fieldDescriptor.isRepeated()) {
       return result;
+    } else if (!builder.hasField(fieldDescriptor)) {
+      return null;
     }
 
     if (fieldDescriptor.getType() == Type.ENUM) {
